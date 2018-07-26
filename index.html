@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Qichwa yupaykuna</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
+
+</head>
+<body>
+<div id="app">
+    {{ message }}
+    <input v-model.number="inputNumber" placeholder="Ingrese un número" maxlength="9"/>
+    <p v-for="qichwaNumber in qichwaNumbers">{{qichwaNumber.qichwaName}} -> {{qichwaNumber.numberAsText}}</p>
+</div>
+<script src="js/index.js"></script>
+</body>
+</html>
