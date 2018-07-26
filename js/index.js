@@ -1,4 +1,4 @@
-getVowelUnitTermination = function(x) {
+var getVowelUnitTermination = function(x) {
     var vowelUnitTermination = 'yuq';
     var infixToAddIfConsonant = 'ni';
     return /[aeiouAEIOU]/.test(x) ? vowelUnitTermination : infixToAddIfConsonant + vowelUnitTermination;
@@ -9,17 +9,28 @@ var app = new Vue({
     data: {
         message: 'Qichwapi yupaykuna!',
         inputNumber: '',
-
         qichwaNumbers: [
             {
-                qichwaName: 'Ecuador Kichwa',
+                qichwaName: 'Ayakuchu-chanka',
                 numberAsText: 'Ingrese un númetro válido',
                 numbers: {
-                    0: 'nima/illak', 1: 'shuk', 2: 'ishkay', 3: 'kimsa', 4: 'chusku', 5: 'pichka', 6: 'sukta', 7: 'kanchis',
-                    8: 'pusak', 9: 'iskun', 10: 'chunka', 100: 'patsak', 1000: 'waranka', 1000000: 'hunu'
+                    0: 'chusaq / nima', 1: 'huk', 2: 'iskay', 3: 'kimsa', 4: 'tawa', 5: 'pichqa', 6: 'suqta', 7: 'qanchis',
+                    8: 'pusaq', 9: 'isqun', 10: 'chunka', 100: 'pachak', 1000: 'waranqa', 1000000: 'hunu'
                 },
-                units: { 1: '', 2: 'waranka', 3: 'hunu', 4: 'waranka hunu' },
-                getVowelUnitTermination: function(x) { return ''; }
+                units: { 1: '', 2: 'waranqa', 3: 'hunu', 4: 'waranqa hunu' },
+                getVowelUnitTermination: getVowelUnitTermination,
+                bgColor: 'bg-primary'
+            },
+            {
+                qichwaName: 'Qusqu',
+                numberAsText: 'Ingrese un númetro válido',
+                numbers: {
+                    0: 'ch\'usaq', 1: 'huk', 2: 'iskay', 3: 'kimsa', 4: 'tawa', 5: 'pichqa', 6: 'suqta', 7: 'qanchis',
+                    8: 'pusaq', 9: 'isqun', 10: 'chunka', 100: 'pachak', 1000: 'waranqa', 1000000: 'hunu'
+                },
+                units: { 1: '', 2: 'waranqa', 3: 'hunu', 4: 'waranqa hunu' },
+                getVowelUnitTermination: getVowelUnitTermination,
+                bgColor: 'bg-info'
             },
             {
                 qichwaName: 'Ankash Kichwa',
@@ -29,27 +40,8 @@ var app = new Vue({
                     8: 'puwaq', 9: 'isqun', 10: 'chunka', 100: 'pachak', 1000: 'waranqa', 1000000: 'hunu'
                 },
                 units: { 1: '', 2: 'waranqa', 3: 'unu', 4: 'waranqa unu' },
-                getVowelUnitTermination: function(x) { return ''; }
-            },
-            {
-                qichwaName: 'Ayakuchu-chanka',
-                numberAsText: 'Ingrese un númetro válido',
-                numbers: {
-                    0: 'chusaq/nima', 1: 'huk', 2: 'iskay', 3: 'kimsa', 4: 'tawa', 5: 'pichqa', 6: 'suqta', 7: 'qanchis',
-                    8: 'pusaq', 9: 'isqun', 10: 'chunka', 100: 'pachak', 1000: 'waranqa', 1000000: 'hunu'
-                },
-                units: { 1: '', 2: 'waranqa', 3: 'hunu', 4: 'waranqa hunu' },
-                getVowelUnitTermination: getVowelUnitTermination
-            },
-            {
-                qichwaName: 'Qusqu',
-                numberAsText: 'Ingrese un númetro válido',
-                numbers: {
-                    0: 'ch\'usaq', 1: 'huk', 2: 'iŝkay', 3: 'kimsa', 4: 'tawa', 5: 'pichqa', 6: 'suqta', 7: 'qanchis',
-                    8: 'pusaq', 9: 'isqun', 10: 'chunka', 100: 'pachak', 1000: 'waranqa', 1000000: 'hunu'
-                },
-                units: { 1: '', 2: 'waranqa', 3: 'hunu', 4: 'waranqa hunu' },
-                getVowelUnitTermination: getVowelUnitTermination
+                getVowelUnitTermination: function(x) { return ''; },
+                bgColor: 'bg-success'
             },
             {
                 qichwaName: 'Wanka',
@@ -59,7 +51,19 @@ var app = new Vue({
                     8: 'pusaq', 9: 'isqun', 10: 'ćhunka', 100: 'paćhak', 1000: 'walanqa', 1000000: 'hunu'
                 },
                 units: { 1: '', 2: 'walanqa', 3: 'hunu', 4: 'walanqa hunu' },
-                getVowelUnitTermination: getVowelUnitTermination
+                getVowelUnitTermination: getVowelUnitTermination,
+                bgColor: 'bg-secondary'
+            },
+            {
+                qichwaName: 'Ecuador Kichwa',
+                numberAsText: 'Ingrese un númetro válido',
+                numbers: {
+                    0: 'nima / illak', 1: 'shuk', 2: 'ishkay', 3: 'kimsa', 4: 'chusku', 5: 'pichka', 6: 'sukta', 7: 'kanchis',
+                    8: 'pusak', 9: 'iskun', 10: 'chunka', 100: 'patsak', 1000: 'waranka', 1000000: 'hunu'
+                },
+                units: { 1: '', 2: 'waranka', 3: 'hunu', 4: 'waranka hunu' },
+                getVowelUnitTermination: function(x) { return ''; },
+                bgColor: 'bg-danger'
             }
         ]
     },
@@ -134,7 +138,14 @@ var app = new Vue({
                 var number = parseInt(item);
                 finalText += number === 0 ? '' : getGroupNumberAsText(parseInt(item), numberGroups.length - i);
             });
-            return finalText;
+            return finalText.trim();
+        }
+    },
+    filters: {
+        capitalize: function (value) {
+            if (!value) return '';
+            value = value.toString();
+            return value.charAt(0).toUpperCase() + value.slice(1);
         }
     }
 });

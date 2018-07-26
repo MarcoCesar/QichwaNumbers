@@ -3,14 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Qichwa yupaykuna</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
     <script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-
 </head>
 <body>
 <div id="app">
-    {{ message }}
-    <input v-model.number="inputNumber" placeholder="Ingrese un número" maxlength="9"/>
-    <p v-for="qichwaNumber in qichwaNumbers">{{qichwaNumber.qichwaName}} -> {{qichwaNumber.numberAsText}}</p>
+    <div class="container-fluid">
+        <div class="row my-5">
+            <div class="col-10 col-sm-4 mx-auto">
+                <fieldset>
+                    <legend>Qichwapi yupaykusun!</legend>
+                    <div class="form-group">
+                        <label for="inputNumber">Ingrese un número</label>
+                        <input v-model.trim.number="inputNumber" class="form-control" id="inputNumber" maxlength="9" placeholder="Ingrese un número">
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-8 mx-auto">
+                <!--<p class="text-center" v-for="qichwaNumber in qichwaNumbers">{{qichwaNumber.qichwaName}} -> {{qichwaNumber.numberAsText}}</p>-->
+                <div v-for="qichwaNumber in qichwaNumbers" class="card text-white mb-3 text-center"  :class="qichwaNumber.bgColor">
+                    <div class="card-body">
+                        <h4 class="card-title">{{qichwaNumber.qichwaName}}</h4>
+                        <p class="card-text">{{qichwaNumber.numberAsText | capitalize}}.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
 <script src="js/index.js"></script>
 </body>
