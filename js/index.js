@@ -17,7 +17,7 @@ var app = new Vue({
                     0: 'chusaq / nima', 1: 'huk', 2: 'iskay', 3: 'kimsa', 4: 'tawa', 5: 'pichqa', 6: 'suqta', 7: 'qanchis',
                     8: 'pusaq', 9: 'isqun', 10: 'chunka', 100: 'pachak', 1000: 'waranqa', 1000000: 'hunu'
                 },
-                units: { 1: '', 2: 'waranqa', 3: 'hunu', 4: 'waranqa hunu' },
+                units: { 1: '', 2: 'waranqa', 3: 'wara-waranqa', 4: 'wara-waranqa waranqa' },
                 getVowelUnitTermination: getVowelUnitTermination,
                 bgColor: 'bg-primary'
             },
